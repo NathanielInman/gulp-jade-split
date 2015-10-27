@@ -12,13 +12,13 @@ module.exports = function splitJade(jsonInput){
         fileName = { filename: file.path },
         contents = String(file.contents);
 
-    json.forEach((entry,i)=>{
-      compiled = jadePress.compile(contents,fileName)(entry.jadeData);
+    json.forEach(function(entry){
+      compiled = jade.compile(contents,fileName)(entry.jadeData);
       this.push(new File({
         base: file.path,
         path: path.join(file.path, entry.outputName),
         contents: new Buffer(compiled)
-      }))
+      }));
     });
     next();
   });
