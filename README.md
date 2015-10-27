@@ -18,22 +18,12 @@
 
 ## Usage
 
-Basic gulpfile.babel.js (ES2015)
-note: Files prefaced with underscore are ignored as they denote partials
-```javascript
-import splitJade from 'gulp-split-jade';
-
-gulp.task('jade-split-demo-es2015',()=>
-  gulp.src(['src/views/!(_)*.jade'])
-    .pipe(splitJade('./src/assets/structure.json'))
-    .pipe(gulp.dest('dist/'))
-); //end 'jade-feature' task
-```
-
 Basic gulpfile.js
 ```javascript
 var splitJade = require('gulp-split-jade');
 
+// Files prefaced with underscare are ignored as they denote
+// partials
 gulp.task('jade-split-demo-es5',function(){
   gulp.src(['src/views/!(_)*.jade'])
     .pipe(splitJade('./src/assets/structure.json'))
@@ -45,13 +35,13 @@ Basic JSON file
 ```json
 [
   {
-    "outputName": 'folder/test.html',
+    "outputName": "demo/test.html",
     "jadeData": {
       "pageTitle": "test page 1"
     }
   },
   {
-    "outputName": 'folder/test2.html',
+    "outputName": "demo/test2.html",
     "jadeData": {
       "pageTitle": "test page 2"
     }
@@ -65,9 +55,30 @@ doctype html
 html(lang="en")
   head
     title= pageTitle
+    include ../partials/_head.jade
   body
     p The title of this page is a variable passed in
     | by the gulp-jade-split plugin.
+    include ../partials/_footer.jade
+    include ../partials/_scripts.jade
+```
+
+Demo output
+```
+project
+├─dist
+│ └─demo
+│   ├─ test.html
+│   └─ test2.html
+│
+├─src
+│ └─views
+│   ├─partials
+│   │ ├─ _footer.jade
+│   │ ├─ _head.jade
+│   │ └─ _scripts.jade
+│   └─ index.jade
+└─ gulpfile.js
 ```
 ## LICENSE
 
