@@ -26,7 +26,7 @@ var splitJade = require('gulp-split-jade');
 // partials
 gulp.task('jade-split-demo-es5',function(){
   gulp.src(['src/views/!(_)*.jade'])
-    .pipe(splitJade('./src/assets/structure.json'))
+    .pipe(splitJade('src/assets/structure.json'))
     .pipe(gulp.dest('dist/'))
 }); //end 'jade-split-demo-es5
 ```
