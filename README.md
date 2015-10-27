@@ -41,6 +41,34 @@ gulp.task('jade-split-demo-es5',function(){
 }); //end 'jade-split-demo-es5
 ```
 
+Basic JSON file
+```json
+[
+  {
+    "outputName": 'folder/test.html',
+    "jadeData": {
+      "pageTitle": "test page 1"
+    }
+  },
+  {
+    "outputName": 'folder/test2.html',
+    "jadeData": {
+      "pageTitle": "test page 2"
+    }
+  }
+]
+```
+
+Basic Jade file
+```jade
+doctype html
+html(lang="en")
+  head
+    title= pageTitle
+  body
+    p The title of this page is a variable passed in
+    | by the gulp-jade-split plugin.
+```
 ## LICENSE
 
 (MIT License)
