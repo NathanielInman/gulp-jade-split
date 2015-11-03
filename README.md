@@ -72,6 +72,8 @@ project
 │   └─ test2.html
 │
 ├─src
+│ ├─assets
+│ │ └─ structure.json
 │ └─views
 │   ├─partials
 │   │ ├─ _footer.jade
