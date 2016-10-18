@@ -1,6 +1,6 @@
 {
   "name": "gulp-jade-split",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "description": "Compile Jade templates given a source JSON structure",
   "keywords": [
     "jade",
